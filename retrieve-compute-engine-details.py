@@ -18,9 +18,9 @@ if (len(sys.argv)) >=3:
     zone = sys.argv[3]
    #status = sys.argv[4]
  #   patchid = sys.argv[5]
-   pzone=''
-   pstate=''
-   preason=''
+  # pzone=''
+  # pstate=''
+  # preason=''
  
     # # Get instance details
     request = service.instances().get(project=project, zone=zone, instance=instance)
