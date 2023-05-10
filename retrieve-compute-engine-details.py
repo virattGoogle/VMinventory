@@ -12,31 +12,31 @@ import os
 credentials = GoogleCredentials.get_application_default()
 service = discovery.build('compute', 'v1', credentials=credentials)
  
-if (len(sys.argv)) >=3:
-    project=sys.argv[1]
-    instance = sys.argv[2]
-    zone = sys.argv[3]
-    status = sys.argv[4]
-    patchid = sys.argv[5]
-    pzone=''
-    pstate=''
-    preason=''
+#if (len(sys.argv)) >=3:
+    #project=sys.argv[1]
+  #  instance = sys.argv[2]
+ #   zone = sys.argv[3]
+  #  status = sys.argv[4]
+ #   patchid = sys.argv[5]
+ #   pzone=''
+ #   pstate=''
+ #   preason=''
  
     # # Get instance details
     request = service.instances().get(project=project, zone=zone, instance=instance)
     response = request.execute()
  
-    if patchid != 0:
+    #if patchid != 0:
         #Get the patch details for the current project
-        compliance_response = subprocess.Popen('gcloud config set project {} && gcloud compute os-config patch-jobs list-instance-details {} --format="value(ZONE,STATE,FAILURE_REASON)" --filter="name:{}"'.format(project,patchid,instance), shell=True, stdout=subprocess.PIPE).stdout.read().decode('ascii')
-        compliance_details = compliance_response.split()
-        if len(compliance_details)>0:
-            pzone = compliance_details[0]
-            pstate = compliance_details[1]
-            try:
-                preason = compliance_details[2]
-            except IndexError:
-                preason = "N/A"
+      #  compliance_response = subprocess.Popen('gcloud config set project {} && gcloud compute os-config patch-jobs list-instance-details {} --format="value(ZONE,STATE,FAILURE_REASON)" --filter="name:{}"'.format(project,patchid,instance), shell=True, stdout=subprocess.PIPE).stdout.read().decode('ascii')
+     #   compliance_details = compliance_response.split()
+       # if len(compliance_details)>0:
+        #    pzone = compliance_details[0]
+        #    pstate = compliance_details[1]
+         #   try:
+             #   preason = compliance_details[2]
+           # except IndexError:
+           #     preason = "N/A"
  
         
     #Get Hostname
