@@ -13,13 +13,13 @@ for i in $(gcloud projects list --format="value(project_id)")
         iscomputeapienabled=$(gcloud services list --enabled --filter="name:compute.googleapis.com" --format="value(name)")
         scomputeapienabled=$(gcloud services list --enabled --filter="name:compute.googleapis.com" --format="value(name)")
         isconfigapienabled=$(gcloud services list --enabled --filter="name:osconfig.googleapis.com" --format="value(name)")
-        if [[ ! -z "$isconfigapienabled" ]]
-        then
-            patchid=$(gcloud compute os-config patch-jobs list --limit 1 --format="value(ID)")
-        else
+       # if [[ ! -z "$isconfigapienabled" ]]
+       # then
+          #  patchid=$(gcloud compute os-config patch-jobs list --limit 1 --format="value(ID)")
+      #  else
             patchid=0
             
-        fi
+      #  fi
    
         if [ -z "$iscomputeapienabled" ] ; then continue; else echo $(gcloud compute instances list --format="value(name,zone,status)" | awk '{print $1,$2,$3}' | tail -n +2| while read line; do echo "$i $line $patchid"; done |xargs -n5 sh -c 'python3  retrieve-compute-engine-details.py $1 $2 $3 $4 $5 >> compute-engine-details.csv' sh); fi
     done
