@@ -15,8 +15,8 @@ service = discovery.build('compute', 'v1', credentials=credentials)
 if (len(sys.argv)) >=3:
     project=sys.argv[1]
     instance = sys.argv[2]
-    zone = sys.argv[3]
-    status = sys.argv[4]
+    zone = sys.argv[4]
+    status = sys.argv[3]
     patchid = sys.argv[5]
     pzone=''
     pstate=''
