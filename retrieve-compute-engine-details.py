@@ -11,7 +11,7 @@ import os
  
 credentials = GoogleCredentials.get_application_default()
 service = discovery.build('compute', 'v1', credentials=credentials)
- 
+ print(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5])
 if (len(sys.argv)) >=3:
     project=sys.argv[1]
     instance = sys.argv[2]
