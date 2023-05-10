@@ -20,6 +20,6 @@ for i in $(gcloud projects list --format="value(project_id)")
             patchid=0
             
         fi
-    echo $1,$2,$3,$4,$5
+   
         if [ -z "$iscomputeapienabled" ] ; then continue; else echo $(gcloud compute instances list --format="value(name,zone,status)" | awk '{print $1,$2,$3}' | tail -n +2| while read line; do echo "$i $line $patchid"; done |xargs -n5 sh -c 'python3  retrieve-compute-engine-details.py $1 $2 $3 $4 $5 >> compute-engine-details.csv' sh); fi
     done
