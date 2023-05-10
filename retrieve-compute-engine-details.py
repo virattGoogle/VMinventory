@@ -32,7 +32,7 @@ if (len(sys.argv)) >=3:
         compliance_details = compliance_response.split()
         if len(compliance_details)>0:
            pzone = compliance_details[0]
-            pstate = compliance_details[1]
+           pstate = compliance_details[1]
            try:
                 preason = compliance_details[2]
             except IndexError:
