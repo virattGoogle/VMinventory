@@ -35,7 +35,7 @@ if (len(sys.argv)) >=3:
            pstate = compliance_details[1]
            try:
                 preason = compliance_details[2]
-            except IndexError:
+           except IndexError:
                 preason = "N/A"
  
         
