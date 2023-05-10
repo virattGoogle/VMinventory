@@ -29,7 +29,7 @@ if (len(sys.argv)) >=3:
     if patchid != 0:
         #Get the patch details for the current project
         compliance_response = subprocess.Popen('gcloud config set project {} && gcloud compute os-config patch-jobs list-instance-details {} --format="value(ZONE,STATE,FAILURE_REASON)" --filter="name:{}"'.format(project,patchid,instance), shell=True, stdout=subprocess.PIPE).stdout.read().decode('ascii')
-       compliance_details = compliance_response.split()
+        compliance_details = compliance_response.split()
         if len(compliance_details)>0:
            pzone = compliance_details[0]
             pstate = compliance_details[1]
