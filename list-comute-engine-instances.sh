@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script to retrieve compute engine details.
  
-echo "PROJECT NAME, INSTANCE NAME , ZONE , MACHINE-TYPE , OPERATING SYSTEM , CPU , MEMORY , DISK SIZE, INTERNAL IP, EXTERNAL IP, HOSTNAME, STATUS, ZONE, STATE, FAILURE REASON" > compute-engine-details.csv
+echo "PROJECT NAME, INSTANCE NAME , ZONE , MACHINE-TYPE , OPERATING SYSTEM , CPU , MEMORY , DISK SIZE, INTERNAL IP, EXTERNAL IP, HOSTNAME, STATUS" > compute-engine-details.csv
 #prjs=( $(gcloud projects list | tail -n +2 | awk {'print $1'}))
 #read -p "Enter the txt file containing the list of project: " projects 
 for i in $(gcloud projects list --format="value(project_id)")
