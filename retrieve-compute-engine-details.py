@@ -21,7 +21,6 @@ if (len(sys.argv)) >=3:
     pzone=''
     pstate=''
     preason=''
- print(project)
     # # Get instance details
     request = service.instances().get(project=project, zone=zone, instance=instance)
     response = request.execute()
