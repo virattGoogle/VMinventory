@@ -71,4 +71,4 @@ if (len(sys.argv)) >=3:
     gigabyte = 1.0/1024
     memory = str(gigabyte * megabyte) + ' GB'
  
-    print(f'{project},{instance},{zone},{mtype},{os},{cpu},{memory},{dsize},{InternalIP},{ExternalIP},{Hostname},{status},{pzone or "N/A"},{pstate or "N/A"},{preason or "N/A"}')
+    print(f'{project},{instance},{zone},{mtype},{os},{cpu},{memory},{dsize},{InternalIP},{ExternalIP},{Hostname},{status}')
