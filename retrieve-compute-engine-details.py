@@ -26,7 +26,7 @@ if (len(sys.argv)) >=3:
     request = service.instances().get(project=project, zone=zone, instance=instance)
     response = request.execute()
  
-    if patchid is not 0:
+    if patchid != 0 0:
         #Get the patch details for the current project
         compliance_response = subprocess.Popen('gcloud config set project {} && gcloud compute os-config patch-jobs list-instance-details {} --format="value(ZONE,STATE,FAILURE_REASON)" --filter="name:{}"'.format(project,patchid,instance), shell=True, stdout=subprocess.PIPE).stdout.read().decode('ascii')
         compliance_details = compliance_response.split()
